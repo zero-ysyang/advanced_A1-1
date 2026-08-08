@@ -1,3 +1,4 @@
+# 기본 프롬프트 데이터
 prompts = [  
     {
         "title": "회의록 요약 도우미",
@@ -25,9 +26,11 @@ prompts = [
     }    
 ]
 
-
+# 카테고리 정의
 categories = ["텍스트 생성", "이미지 생성", "영상 생성", "페르소나", "자동화", "기타"]
 
+
+# 1. 프롬프트 추가
 def add_prompt():
     print("\n=== 프롬프트 추가 ===")
     while True:
@@ -60,6 +63,8 @@ def add_prompt():
     prompts.append(new_prompt)
     print("\n프롬프트가 추가되었습니다!")
 
+
+# 2. 프롬프트 목록
 def show_prompt_list():
     print("\n=== 프롬프트 목록 ===")
     for i, p in enumerate(prompts, 1):
@@ -67,6 +72,8 @@ def show_prompt_list():
         print(f"{i}. [{p['category']}] {p['title']}{star}")
     print(f"\n총 {len(prompts)}개의 프롬프트")
 
+
+# 3. 카테고리별 조회
 def show_prompts_by_category():
     print("\n=== 카테고리별 조회 ===")
 
@@ -87,6 +94,8 @@ def show_prompts_by_category():
         print(f"{i}. {p['title']}{star}")
     print(f"\n총 {len(filtered)}개의 프롬프트")
 
+
+# 4. 프롬프트 검색
 def search_prompt():
     print("\n=== 프롬프트 검색 ===")
     query = input("검색어: ").strip().lower()
@@ -101,6 +110,8 @@ def search_prompt():
         print(f"{i}. [{p['category']}] {p['title']}{star}")
     print(f"\n{len(results)}개의 프롬프트를 찾았습니다.")
 
+
+# 5. 프롬프트 상세 보기
 def show_prompt_detail():
     print("\n=== 프롬프트 상세 보기 ===")
     choice = input("번호 입력: ").strip()
@@ -123,28 +134,8 @@ def show_prompt_detail():
     else:
         print(f"{choice}번 프롬프트를 찾을 수 없습니다.")
 
-def show_prompt_detail():
-    print("\n=== 프롬프트 상세 보기 ===")
-    choice = input("번호 입력: ").strip()
-    if not choice.isdigit():
-        print("숫자를 입력해야 합니다.")
-        return
-    
-    idx = int(choice) - 1
-    if 0 <= idx < len(prompts):
-        p = prompts[idx]
-        star = "⭐" if p["favorite"] else ""
-        print("\n────────────────────────────")
-        print(f"제목: {p['title']}")
-        print(f"카테고리: {p['category']}")
-        print(f"즐겨찾기: {star}")
-        print("────────────────────────────")
-        print("내용:")
-        print(p['content'])
-        print("────────────────────────────")
-    else:
-        print(f"{choice}번 프롬프트를 찾을 수 없습니다.")
 
+# 6. 즐겨찾기 관리
 def manage_favorites():
     print("\n=== 즐겨찾기 관리 ===")
     choice = input("프롬프트 번호 입력: ").strip()
@@ -167,6 +158,8 @@ def manage_favorites():
     else:
         print(f"{choice}번 프롬프트를 찾을 수 없습니다.")
 
+
+# 7. 즐겨찾기 목록
 def show_favorite_list():
     print("\n=== 즐겨찾기 목록 ===")
     favorites = [p for p in prompts if p.get("favorite")]
@@ -176,6 +169,8 @@ def show_favorite_list():
     
     print(f"\n총 {len(favorites)}개의 즐겨찾기")
 
+
+# 메뉴 화면
 def main_menu():
     while True:
         print("\n=== 나만의 프롬프트 관리 ===")
