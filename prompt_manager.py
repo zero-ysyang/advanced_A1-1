@@ -158,6 +158,15 @@ def manage_favorites():
     else:
         print(f"{choice}번 프롬프트를 찾을 수 없습니다.")
 
+def show_favorite_list():
+    print("\n=== 즐겨찾기 목록 ===")
+    favorites = [p for p in prompts if p.get("favorite")]
+    
+    for i, p in enumerate(favorites, 1):
+        print(f"{i}. [{p['category']}] {p['title']} ⭐")
+    
+    print(f"\n총 {len(favorites)}개의 즐겨찾기")
+
 def main_menu():
     while True:
         print("\n=== 나만의 프롬프트 관리 ===")
@@ -184,11 +193,11 @@ def main_menu():
             show_prompt_detail()
         elif choice == '6':
             manage_favorites()
+        elif choice == '7':
+            show_favorite_list()
         elif choice == '0':
             print("종료합니다.")
             break
-        elif choice in ['7']:
-            print(f"{choice}번 메뉴는 아직 구현되지 않았습니다.")
         else:
             print("잘못된 선택입니다. 0~7 사이의 숫자를 입력해주세요.")
 
