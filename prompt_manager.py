@@ -65,6 +65,26 @@ def show_prompt_list():
         print(f"{i}. [{p['category']}] {p['title']}{star}")
     print(f"\n총 {len(prompts)}개의 프롬프트")
 
+def show_prompts_by_category():
+    print("\n=== 카테고리별 조회 ===")
+    categories = ["텍스트 생성", "이미지 생성", "영상 생성", "페르소나", "자동화", "기타"]
+    for i, cat in enumerate(categories, 1):
+        print(f"{i}) {cat}")
+    
+    while True:
+        choice = input("선택: ").strip()
+        if choice.isdigit() and 1 <= int(choice) <= len(categories):
+            selected_category = categories[int(choice) - 1]
+            break
+        print("잘못된 선택입니다. 다시 선택해주세요.")
+
+    filtered = [p for p in prompts if p["category"] == selected_category]
+    print(f"\n[{selected_category}] 카테고리 프롬프트:")
+    for i, p in enumerate(filtered, 1):
+        star = " ⭐" if p["favorite"] else ""
+        print(f"{i}. {p['title']}{star}")
+    print(f"\n총 {len(filtered)}개의 프롬프트")
+
 def main_menu():
     while True:
         print("\n=== 나만의 프롬프트 관리 ===")
@@ -83,10 +103,12 @@ def main_menu():
             add_prompt()
         elif choice == '2':
             show_prompt_list()
+        elif choice == '3':
+            show_prompts_by_category()
         elif choice == '0':
             print("종료합니다.")
             break
-        elif choice in ['3', '4', '5', '6', '7']:
+        elif choice in ['4', '5', '6', '7']:
             print(f"{choice}번 메뉴는 아직 구현되지 않았습니다.")
         else:
             print("잘못된 선택입니다. 0~7 사이의 숫자를 입력해주세요.")
