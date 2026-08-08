@@ -4,33 +4,45 @@ AI 작업에 자주 사용하는 프롬프트를 저장하고 관리하는 CLI �
 
 ---
 ## 💻 실행 환경 
-- Python 3.14 이상
+- Python 3.14 이상  
+  <img width="438" height="45" alt="파이썬버전" src="https://github.com/user-attachments/assets/c73ee74b-0b48-496e-97e8-c544376e124c" />
 - 별도 패키지 설치 불필요 (표준 라이브러리만 사용)
+- Git version  
+  <img width="462" height="39" alt="깃버전" src="https://github.com/user-attachments/assets/0b2517bc-b43b-4f2e-9b25-f2c8f0efd149" />
+
+
 ---
 ## 🚀 실행 방법
 ### 1. 저장소 클론
+
 ```bash
 git clone https://github.com/zero-ysyang/advanced_A1-1.git
 cd advanced_A1-1
 ```
+<img width="676" height="161" alt="20260808_183210" src="https://github.com/user-attachments/assets/897f307f-f41f-4504-a922-0a82a3f0b3ce" />
+
+
 ### 2. 프로그램 실행
 ```bash
 python prompt_manager.py
 ```
 
+<img width="571" height="232" alt="캡처33" src="https://github.com/user-attachments/assets/f5fa6b8a-822c-470f-8df2-3db5c17e94a6" />
+
+
 ---
 
 ## 📌 주요 기능 설명
 
-| 기능 | 설명 |
-|------|------|
-| 프롬프트 추가 | 제목, 내용, 카테고리를 입력하여 새 프롬프트 저장 |
-| 프롬프트 목록 | 저장된 전체 프롬프트를 번호 순으로 조회 |
-| 카테고리별 조회 | 선택한 카테고리의 프롬프트만 필터링하여 조회 |
-| 프롬프트 검색 | 제목 또는 내용에 포함된 키워드로 검색 |
-| 프롬프트 상세 보기 | 번호 입력으로 특정 프롬프트의 전체 내용 확인 |
-| 즐겨찾기 관리 | 자주 사용하는 프롬프트를 즐겨찾기(⭐) 등록/해제 |
-| 즐겨찾기 목록 | 즐겨찾기로 등록된 프롬프트만 모아서 조회 |
+| 기능 | 함수 | 설명 |
+|------|------|------|
+| 프롬프트 추가 | add_prompt() | 제목, 내용, 카테고리를 입력하여 새 프롬프트 저장 |
+| 프롬프트 목록 | show_prompt_list() | 저장된 전체 프롬프트를 번호 순으로 조회 |
+| 카테고리별 조회 | show_prompts_by_category() | 선택한 카테고리의 프롬프트만 필터링하여 조회 |
+| 프롬프트 검색 | search_prompt() |  제목 또는 내용에 포함된 키워드로 검색 |
+| 프롬프트 상세 보기 | show_prompt_detail() |  번호 입력으로 특정 프롬프트의 전체 내용 확인 |
+| 즐겨찾기 관리 | manage_favorites() |  자주 사용하는 프롬프트를 즐겨찾기(⭐) 등록/해제 |
+| 즐겨찾기 목록 | show_favorite_list() |  즐겨찾기로 등록된 프롬프트만 모아서 조회 |
 
 
 ## 🗂️ 프롬프트 카테고리 설명
