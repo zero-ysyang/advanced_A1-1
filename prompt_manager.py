@@ -1,4 +1,4 @@
-prompts = [
+prompts = [  
     {
         "title": "회의록 요약 도우미",
         "content": "당신은 전문 비서이자 프로젝트 매니저입니다...",
@@ -25,6 +25,9 @@ prompts = [
     }    
 ]
 
+
+categories = ["텍스트 생성", "이미지 생성", "영상 생성", "페르소나", "자동화", "기타"]
+
 def add_prompt():
     print("\n=== 프롬프트 추가 ===")
     while True:
@@ -37,7 +40,6 @@ def add_prompt():
         if content: break
         print("내용을 입력해야 합니다.")
 
-    categories = ["텍스트 생성", "이미지 생성", "영상 생성", "페르소나", "자동화", "기타"]
     while True:
         print("\n카테고리 선택:")
         for i, cat in enumerate(categories, 1):
@@ -67,7 +69,7 @@ def show_prompt_list():
 
 def show_prompts_by_category():
     print("\n=== 카테고리별 조회 ===")
-    categories = ["텍스트 생성", "이미지 생성", "영상 생성", "페르소나", "자동화", "기타"]
+
     for i, cat in enumerate(categories, 1):
         print(f"{i}) {cat}")
     
