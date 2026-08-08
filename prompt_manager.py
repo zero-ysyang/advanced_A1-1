@@ -99,6 +99,50 @@ def search_prompt():
         print(f"{i}. [{p['category']}] {p['title']}{star}")
     print(f"\n{len(results)}개의 프롬프트를 찾았습니다.")
 
+def show_prompt_detail():
+    print("\n=== 프롬프트 상세 보기 ===")
+    choice = input("번호 입력: ").strip()
+    if not choice.isdigit():
+        print("숫자를 입력해야 합니다.")
+        return
+    
+    idx = int(choice) - 1
+    if 0 <= idx < len(prompts):
+        p = prompts[idx]
+        star = "⭐" if p["favorite"] else ""
+        print("\n────────────────────────────")
+        print(f"제목: {p['title']}")
+        print(f"카테고리: {p['category']}")
+        print(f"즐겨찾기: {star}")
+        print("────────────────────────────")
+        print("내용:")
+        print(p['content'])
+        print("────────────────────────────")
+    else:
+        print(f"{choice}번 프롬프트를 찾을 수 없습니다.")
+
+def show_prompt_detail():
+    print("\n=== 프롬프트 상세 보기 ===")
+    choice = input("번호 입력: ").strip()
+    if not choice.isdigit():
+        print("숫자를 입력해야 합니다.")
+        return
+    
+    idx = int(choice) - 1
+    if 0 <= idx < len(prompts):
+        p = prompts[idx]
+        star = "⭐" if p["favorite"] else ""
+        print("\n────────────────────────────")
+        print(f"제목: {p['title']}")
+        print(f"카테고리: {p['category']}")
+        print(f"즐겨찾기: {star}")
+        print("────────────────────────────")
+        print("내용:")
+        print(p['content'])
+        print("────────────────────────────")
+    else:
+        print(f"{choice}번 프롬프트를 찾을 수 없습니다.")
+
 def main_menu():
     while True:
         print("\n=== 나만의 프롬프트 관리 ===")
@@ -121,10 +165,12 @@ def main_menu():
             show_prompts_by_category()
         elif choice == '4':
             search_prompt()
+        elif choice == '5':
+            show_prompt_detail()
         elif choice == '0':
             print("종료합니다.")
             break
-        elif choice in ['5', '6', '7']:
+        elif choice in ['6', '7']:
             print(f"{choice}번 메뉴는 아직 구현되지 않았습니다.")
         else:
             print("잘못된 선택입니다. 0~7 사이의 숫자를 입력해주세요.")
