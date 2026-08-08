@@ -143,6 +143,21 @@ def show_prompt_detail():
     else:
         print(f"{choice}번 프롬프트를 찾을 수 없습니다.")
 
+def manage_favorites():
+    print("\n=== 즐겨찾기 관리 ===")
+    choice = input("프롬프트 번호 입력: ").strip()
+    if not choice.isdigit():
+        print("숫자를 입력해야 합니다.")
+        return
+    
+    idx = int(choice) - 1
+    if 0 <= idx < len(prompts):
+        p = prompts[idx]
+        p["favorite"] = True
+        print(f"'{p['title']}' 프롬프트를 즐겨찾기에 추가했습니다!")
+    else:
+        print(f"{choice}번 프롬프트를 찾을 수 없습니다.")
+
 def main_menu():
     while True:
         print("\n=== 나만의 프롬프트 관리 ===")
@@ -167,10 +182,12 @@ def main_menu():
             search_prompt()
         elif choice == '5':
             show_prompt_detail()
+        elif choice == '6':
+            manage_favorites()
         elif choice == '0':
             print("종료합니다.")
             break
-        elif choice in ['6', '7']:
+        elif choice in ['7']:
             print(f"{choice}번 메뉴는 아직 구현되지 않았습니다.")
         else:
             print("잘못된 선택입니다. 0~7 사이의 숫자를 입력해주세요.")
