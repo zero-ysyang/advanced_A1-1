@@ -148,15 +148,22 @@ def show_prompt_detail():
 def manage_favorites():
     print("\n=== 즐겨찾기 관리 ===")
     choice = input("프롬프트 번호 입력: ").strip()
+    
     if not choice.isdigit():
         print("숫자를 입력해야 합니다.")
         return
     
     idx = int(choice) - 1
+    
     if 0 <= idx < len(prompts):
         p = prompts[idx]
-        p["favorite"] = True
-        print(f"'{p['title']}' 프롬프트를 즐겨찾기에 추가했습니다!")
+        # 현재 favorite 상태를 반대로 바꿈
+        if p["favorite"]:
+            p["favorite"] = False
+            print(f"'{p['title']}' 즐겨찾기를 해제했습니다.")
+        else:
+            p["favorite"] = True
+            print(f"'{p['title']}' 프롬프트를 즐겨찾기에 추가했습니다!")
     else:
         print(f"{choice}번 프롬프트를 찾을 수 없습니다.")
 
